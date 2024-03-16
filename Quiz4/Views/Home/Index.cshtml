@@ -1,0 +1,28 @@
+﻿@model List<Bpmeasurement>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Table to display all the BPMeasurement objects in the model. -->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Systolic</th>
+            <th>Diastolic</th>
+            <th>Date of Measurement</th>
+            <th>Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bpm in Model)
+        {
+            <tr>
+                <td>@bpm.Systolic</td>
+                <td>@bpm.Diastolic</td>
+                <td>@bpm.MeasurementDate.ToShortDateString()</td>
+                <td>@bpm.MeasurementPosition.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
